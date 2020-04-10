@@ -15,13 +15,13 @@ body {
     padding-bottom: 62px;
 }
 
-header, main {
+header, main, #panel {
     width: 940px;
     margin: 0 auto;
 }
 
 main {
-    margin-bottom: 20px;
+    margin: 50px auto 20px;
 }
 
 p {
@@ -33,7 +33,7 @@ p {
 
 header nav {
     width: 50%;
-    padding: 30px 0;
+    padding-top: 30px;
     display: flex;
 }
 
@@ -66,12 +66,11 @@ header nav div a:hover {
 /* === PANEL === */
 
 #panel {
-    width: 100%;
     height: 366px;
     background-color: #FBDFDB;
     border-radius: 30px;
     position: relative;
-    margin-bottom: 50px;
+    margin: 30px auto 50px;
 }
 
 #panel div {
@@ -155,4 +154,5 @@ article {
 
 article p {
     padding-bottom: 30px;
+    color: #444;
 }

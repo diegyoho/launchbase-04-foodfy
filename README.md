@@ -30,13 +30,12 @@
 
 ## Desafio: Construindo Foodfy
 <a href="https://github.com/Rocketseat/bootcamp-launchbase-desafios-02/blob/master/desafios/02-foodfy.md">Descrição</a>
-> Em Construção!
 ###### Código [aqui](https://github.com/chicodiegomoreira/launchbase-04-foodfy/tree/master/docs/1-desafio-construindo-foodfy)!
 ###### Veja a página [aqui](https://chicodiegomoreira.github.io/launchbase-04-foodfy/1-desafio-construindo-foodfy/),  ou clicando na imagem!
 
 <div align="center">
     <a href="https://chicodiegomoreira.github.io/launchbase-04-foodfy/1-desafio-construindo-foodfy/">
-    <img alt="Exemplo" src="https://github.com/chicodiegomoreira/launchbase-04-foodfy/blob/master/docs/imgs/preview-1.png" width="100%" />
+    <img alt="Exemplo" src="https://github.com/chicodiegomoreira/launchbase-04-foodfy/blob/master/docs/imgs/preview-1.gif" width="100%" />
     </a>
 </div>
 

@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     border: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -43,6 +44,10 @@ header nav div {
 
 header nav div a {
     margin: 0 15px;
+}
+
+header nav div a.active {
+    font-weight: bold;
 }
 
 header nav div a:hover {

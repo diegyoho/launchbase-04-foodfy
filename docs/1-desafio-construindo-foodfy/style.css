@@ -20,6 +20,15 @@ header, main {
     margin: 0 auto;
 }
 
+main {
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 28px;
+}
+
 /* === NAVIGATION === */
 
 header nav {
@@ -79,8 +88,6 @@ header nav div a:hover {
 #panel div p {
     color: #000;
     opacity: 0.7;
-    font-size: 18px;
-    line-height: 28px;
 }
 
 #panel img {
@@ -91,8 +98,8 @@ header nav div a:hover {
 
 /* === CARDS === */
 
-main {
-    margin-bottom: 40px;
+#recipes {
+    padding-bottom: 20px;
 }
 
 #recipes h2 {
@@ -136,5 +143,16 @@ footer {
 
 footer p {
     font-size: 14px;
+    line-height: normal;
     color: #999;
+}
+
+/* === ABOUT === */
+
+article {
+    margin-top: 20px;
+}
+
+article p {
+    padding-bottom: 30px;
 }

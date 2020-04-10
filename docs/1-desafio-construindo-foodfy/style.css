@@ -59,7 +59,7 @@ header nav div a.active {
     font-weight: bold;
 }
 
-header nav div a:hover {
+a:hover {
     font-weight: bold;
 }
 
@@ -167,6 +167,7 @@ article p {
     top: 0;
     opacity: 1;
     visibility: hidden;
+    display: flex;
 }
 
 #modal-overlay.active {
@@ -178,7 +179,7 @@ article p {
     background-color: #fff;
     border-radius: 16px;
     width: 660px;
-    margin: 25vh auto;
+    margin: auto;
     padding: 10px;
     position: relative;
     text-align: center;
@@ -209,8 +210,9 @@ article p {
     font-size: 16px;
     text-decoration: none;
     color: #999;
+    cursor: pointer;
 }
 
-.modal .close-modal a:hover {
+/* .modal .close-modal a:hover {
     text-decoration: underline;
-}
+} */

@@ -58,6 +58,7 @@ header nav div a:hover {
     background-color: #FBDFDB;
     border-radius: 30px;
     position: relative;
+    margin-bottom: 50px;
 }
 
 #panel div {
@@ -82,4 +83,34 @@ header nav div a:hover {
     position: absolute;
     bottom: 0;
     right: 100px;
+}
+
+/* === CARDS === */
+
+#recipes h2 {
+    margin-bottom: 20px;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card img{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card .info h3 {
+    font-size: 18px;
+    font-weight: initial;
+    margin-top: 20px;
+}
+
+.card .info p {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }

@@ -1,5 +1,9 @@
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap";
 
+:root {
+    --color-main: #111;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,4 +12,74 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: var(--color-main);
+}
+
+header, main {
+    width: 940px;
+    margin: 0 auto;
+}
+
+/* === NAVIGATION === */
+
+header nav {
+    width: 50%;
+    padding: 30px 0;
+    display: flex;
+}
+
+header nav a {
+    color: black;
+    text-decoration: none;
+    min-height: 26px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+header nav div {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+header nav div a {
+    margin: 0 15px;
+}
+
+header nav div a:hover {
+    font-weight: bold;
+}
+
+/* === PANEL === */
+
+#panel {
+    width: 100%;
+    height: 366px;
+    background-color: #FBDFDB;
+    border-radius: 30px;
+    position: relative;
+}
+
+#panel div {
+    position: absolute;
+    width: 316px;
+    margin: 117px 60px;
+}
+
+#panel div h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+#panel div p {
+    color: #000;
+    opacity: 0.7;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+#panel img {
+    position: absolute;
+    bottom: 0;
+    right: 100px;
 }

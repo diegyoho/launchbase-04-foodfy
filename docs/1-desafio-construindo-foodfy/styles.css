@@ -111,6 +111,10 @@ header nav ul a {
     gap: 20px;
 }
 
+.card {
+    cursor: pointer;
+}
+
 .card img{
     width: 100%;
     border-radius: 15px;

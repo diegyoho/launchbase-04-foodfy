@@ -24,11 +24,12 @@
 
 <p align="center">
   <a href="https://github.com/chicodiegomoreira/launchbase-04">Início</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#desafio-construindo-foodfy">Desafio 01</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#construindo-foodfy">Construindo Foodfy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#back-end">Back-end</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#licença">Licença</a>
 </p>
 
-## Desafio: Construindo Foodfy
+## Construindo Foodfy
 <a href="https://github.com/Rocketseat/bootcamp-launchbase-desafios-02/blob/master/desafios/02-foodfy.md">Descrição</a>
 ###### Código [aqui](https://github.com/chicodiegomoreira/launchbase-04-foodfy/tree/master/docs/1-desafio-construindo-foodfy)!
 ###### Veja a página [aqui](https://chicodiegomoreira.github.io/launchbase-04-foodfy/1-desafio-construindo-foodfy/),  ou clicando na imagem!
@@ -38,6 +39,33 @@
     <img alt="Exemplo" src="https://github.com/chicodiegomoreira/launchbase-04-foodfy/blob/master/docs/imgs/preview-1.gif" width="100%" />
     </a>
 </div>
+
+## Back-end
+- [ ] Refatorando Foodfy - 
+<a href="https://github.com/Rocketseat/bootcamp-launchbase-desafios-03/blob/master/desafios/03-refatorando-foodfy.md">Descrição</a>
+
+#### Instalação:
+
+Certifique-se de estar na raiz do projeto e execute no terminal:
+
+```
+npm install
+```
+
+#### Execução:
+```
+npm start
+```
+Se tudo der certo, esta mensagem deve ser mostrada no terminal:
+
+```
+Server is running on port: 5000!
+Application can be accessed at the address: http://localhost:5000
+```
+
+Acesse no navegador: [http://localhost:5000](http://localhost:5000)
+
+###### Código [aqui](https://github.com/chicodiegomoreira/launchbase-04-foodfy/tree/master/foodfy)!
 
 ## Licença
 

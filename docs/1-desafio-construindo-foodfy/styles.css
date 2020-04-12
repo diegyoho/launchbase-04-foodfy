@@ -170,7 +170,7 @@ article p {
     height: 100%;
     position: fixed;
     top: 0;
-    opacity: 1;
+    opacity: 0;
     visibility: hidden;
     display: flex;
 }

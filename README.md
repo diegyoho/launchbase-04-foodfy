@@ -49,7 +49,7 @@
 
 #### Instalação:
 
-Certifique-se de estar na raiz do projeto e execute no terminal:
+Certifique-se de estar na raiz do projeto(pasta ./foodfy) e execute no terminal:
 
 ```
 npm install

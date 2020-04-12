@@ -41,9 +41,11 @@
 </div>
 
 ## Back-end
-- [ ] Refatorando Foodfy - 
+- [x] Refatorando Foodfy - 
 <a href="https://github.com/Rocketseat/bootcamp-launchbase-desafios-03/blob/master/desafios/03-refatorando-foodfy.md">Descrição</a>
-
+<div align="center">
+    <img alt="Exemplo" src="https://github.com/chicodiegomoreira/launchbase-04-foodfy/blob/master/docs/imgs/preview-2.gif" width="100%" />
+</div>
 #### Instalação:
 
 Certifique-se de estar na raiz do projeto e execute no terminal:

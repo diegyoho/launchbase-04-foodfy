@@ -19,7 +19,14 @@ nunjuks.configure('views', {
 // Routes
 
 server.get('/', function (req, res) {
-    res.render('home', { recipes })
+
+    const mostAccessed = []
+
+    for (let i = 0; i < 6; ++i) {
+        mostAccessed.push(recipes[i])
+    }
+
+    res.render('home', { recipes: mostAccessed })
 })
 
 server.get('/about', function (req, res) {
@@ -27,7 +34,7 @@ server.get('/about', function (req, res) {
 })
 
 server.get('/recipes', function (req, res) {
-    res.render('recipes')
+    res.render('recipes', { recipes })
 })
 
 server.use(function (req, res) {

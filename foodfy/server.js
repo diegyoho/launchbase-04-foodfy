@@ -19,7 +19,7 @@ nunjuks.configure('views', {
 // Routes
 
 server.get('/', function (req, res) {
-    res.render('home')
+    res.render('home', { recipes })
 })
 
 server.get('/about', function (req, res) {

@@ -113,6 +113,7 @@ header nav ul a {
 
 .card {
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .card img{
@@ -131,7 +132,6 @@ header nav ul a {
     line-height: initial;
     color: #777;
     margin-top: 5px;
-    margin-bottom: 10px;
 }
 
 /* === FOOTER === */
@@ -160,4 +160,61 @@ article {
 article p {
     padding-bottom: 30px;
     color: #444;
+}
+
+/* === RECIPE DETAILS === */
+
+#recipe-header {
+    margin-bottom: 50px;
+}
+
+#recipe-header img {
+    border-radius: 15px;
+}
+
+#recipe-header .info {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#recipe-header .info h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#recipe-header .info p {
+    font-size: 20px;
+}
+
+#recipe-details h2 {
+    display: inline;
+}
+
+#recipe-details .content {
+    margin: 20px 0 30px;
+    font-size: 18px;
+    line-height: 28px;
+    color: #444;
+    visibility: visible;
+}
+
+#recipe-details ul {
+    list-style-position: inside;
+}
+
+#information p {
+    white-space: pre-line;
+}
+
+#recipe-details .content.hidden * {
+    height: 0px;
+    visibility: hidden;
+    line-height: 0;
+}
+
+#recipe-details a {
+    color: #999;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
 }

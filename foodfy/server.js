@@ -37,6 +37,10 @@ server.get('/recipes', function (req, res) {
     res.render('recipes', { recipes })
 })
 
+server.get('/recipes/:id', function (req, res) {
+    res.render('recipe-details', { recipe: recipes[0] })
+})
+
 server.use(function (req, res) {
     res.status(404).render('not-found')
 })

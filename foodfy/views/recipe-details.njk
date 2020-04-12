@@ -1,0 +1,44 @@
+{% extends 'layout.njk' %}
+
+{% block head %}
+    <title>{{ recipe.title }}</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section id="recipe-header">
+            <img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}">
+            <div class="info">
+                <h1>{{ recipe.title }}</h1>
+                <p class="author">por
+                    {{ recipe.author }}</p>
+            </div>
+        </section>
+        <section id="ingredients">
+            <h3>Ingredientes</h3>
+            <div class="content">
+                <ul>
+                    {% for ingredient in recipe.ingredients %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section id="preparation">
+            <h3>Modo de preparo</h3>
+            <div class="content">
+                <ul>
+                    {% for step in recipe.preparation %}
+                        <li>{{ step }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section id="information">
+            <h3>Informações adicionais</h3>
+            <div class="content">
+                <p>{{ recipe.information }}</p>
+            </div>
+        </section>
+    </main>
+{% endblock %}

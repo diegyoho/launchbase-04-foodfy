@@ -195,6 +195,7 @@ article p {
     font-size: 18px;
     line-height: 28px;
     color: #444;
+    opacity: 1;
     visibility: visible;
 }
 
@@ -206,8 +207,9 @@ article p {
     white-space: pre-line;
 }
 
-#recipe-details .content.hidden * {
-    height: 0px;
+#recipe-details .content.hidden {
+    height: 0;
+    opacity: 0;
     visibility: hidden;
     line-height: 0;
 }

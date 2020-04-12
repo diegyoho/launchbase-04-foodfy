@@ -38,7 +38,7 @@ server.get('/recipes', function (req, res) {
 })
 
 server.get('/recipes/:id', function (req, res) {
-    res.render('recipe-details', { recipe: recipes[0] })
+    res.render('recipe-details', { recipe: recipes[req.params.id] })
 })
 
 server.use(function (req, res) {

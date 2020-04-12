@@ -1,5 +1,9 @@
+// Import dependencies
 const express = require('express')
 const nunjuks = require('nunjucks')
+const recipes = require('./data')
+
+// Configure
 
 const server = express()
 
@@ -11,6 +15,8 @@ nunjuks.configure('views', {
     autoescape: false,
     noCache: true
 })
+
+// Routes
 
 server.get('/', function (req, res) {
     res.render('home')
@@ -28,6 +34,7 @@ server.use(function (req, res) {
     res.status(404).render('not-found')
 })
 
+// Start server
 server.listen(5000, function () {
     console.log('Server is running on port: 5000')
     console.log('Application can be accessed at the address: http://localhost:5000')

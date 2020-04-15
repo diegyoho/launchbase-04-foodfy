@@ -25,7 +25,7 @@
 <p align="center">
   <a href="https://github.com/chicodiegomoreira/launchbase-04">Início</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#construindo-foodfy">Construindo Foodfy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#back-end">Back-end</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#nodejs">NodeJS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#licença">Licença</a>
 </p>
 
@@ -40,15 +40,16 @@
     </a>
 </div>
 
-## Back-end
+## NodeJS
 - [x] Refatorando Foodfy - 
 <a href="https://github.com/Rocketseat/bootcamp-launchbase-desafios-03/blob/master/desafios/03-refatorando-foodfy.md">Descrição</a>
 <div align="center">
     <img alt="Exemplo" src="https://github.com/chicodiegomoreira/launchbase-04-foodfy/blob/master/docs/imgs/preview-2.gif" width="100%" />
 </div>
+
 #### Instalação:
 
-Certifique-se de estar na raiz do projeto e execute no terminal:
+Certifique-se de estar na raiz do projeto(pasta ./foodfy) e execute no terminal:
 
 ```
 npm install

@@ -266,7 +266,7 @@ header.admin {
     font-size: 14px;
 }
 
-form .title {
+.title {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -313,6 +313,9 @@ form button {
     color: var(--primary-action);
     font-size: 16px;
     font-weight: bold;
-    margin-top: 15px;
     cursor: pointer;
+}
+
+div + button, input + input {
+    margin-top: 15px;
 }

@@ -2,6 +2,8 @@ const currentLocation = window.location.pathname
 const cards = document.querySelectorAll('.card')
 const details = document.querySelectorAll('#recipe-details .details')
 const menuItems = document.querySelectorAll('nav ul a')
+const addIngredient = document.querySelector('button.add-ingredient')
+const addStep = document.querySelector('button.add-step')
 
 for (const item of menuItems) {
     if (currentLocation.includes(item.getAttribute('href')))
@@ -29,3 +31,23 @@ for (const detail of details) {
         }
     })
 }
+
+addIngredient.addEventListener('click', function () {
+    const lastIngredient = document.querySelector('input[name="ingredients[]"]').cloneNode(true)
+    if (lastIngredient.value == '') {
+        alert('Preencha o último ingrediente!')
+        return
+    }
+    lastIngredient.value = ''
+    document.querySelector('.ingredients').appendChild(lastIngredient)
+})
+
+addStep.addEventListener('click', function () {
+    const lastStep = document.querySelector('input[name="preparation[]"]').cloneNode(true)
+    if (lastStep.value == '') {
+        alert('Preencha o último passo!')
+        return
+    }
+    lastStep.value = ''
+    document.querySelector('.preparation').appendChild(lastStep)
+})

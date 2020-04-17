@@ -1,9 +1,9 @@
 const fs = require('fs')
-const data = require('../data')//require('../data.json')
+const data = require('../data.json')
 // const { age, date, degree } = require('../utils')
 
 exports.index = function (req, res) {
-    return res.render('admin/index', { recipes: data })
+    return res.render('admin/index', { recipes: data.recipes })
 }
 
 exports.create = function (req, res) {

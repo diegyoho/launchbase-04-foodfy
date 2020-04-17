@@ -1,11 +1,19 @@
+const currentLocation = window.location.pathname
 const cards = document.querySelectorAll('.card')
 const details = document.querySelectorAll('#recipe-details .details')
+const menuItems = document.querySelectorAll('nav ul a')
+
+for (const item of menuItems) {
+    if (currentLocation.includes(item.getAttribute('href')))
+        item.classList.add('active')
+}
 
 for (const [index, card] of cards.entries()) {
 
-    card.addEventListener('click', function () {
-        window.location.href = `/recipes/${index}`
-    })
+    if (!card.classList.contains('admin'))
+        card.addEventListener('click', function () {
+            window.location.href = `/recipes/${index}`
+        })
 }
 
 for (const detail of details) {

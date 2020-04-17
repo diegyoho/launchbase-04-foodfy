@@ -287,7 +287,9 @@ form .label {
     margin-bottom: 10px;
 }
 
+form textarea,
 form input {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -295,6 +297,10 @@ form input {
     padding: 12px;
     outline: none;
     resize: none;
+}
+
+form textarea {
+    height: 250px;
 }
 
 .label {

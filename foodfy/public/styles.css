@@ -265,3 +265,48 @@ header.admin {
     font-weight: bold;
     font-size: 14px;
 }
+
+form .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button {
+    background-color: var(--primary-action);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+}
+
+form .label {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: initial;
+    margin-bottom: 10px;
+}
+
+form input {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 24px;
+    padding: 12px;
+    outline: none;
+    resize: none;
+}
+
+.label {
+    margin-top: 30px;
+}
+
+form button {
+    outline: none;
+    background: none;
+    color: var(--primary-action);
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+}

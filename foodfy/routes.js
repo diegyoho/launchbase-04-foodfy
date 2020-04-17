@@ -1,14 +1,14 @@
 const express = require('express')
 const routes = express.Router()
 const recipes = require('./controllers/recipes')
-const data = require('./data')
+const data = require('./data.json')
 
 routes.get('/', function (req, res) {
 
     const mostAccessed = []
 
-    for (let i = 0; i < 6; ++i) {
-        mostAccessed.push(data[i])
+    for (let i = 0; i < 6 && i < data.recipes.length; ++i) {
+        mostAccessed.push(data.recipes[i])
     }
 
     res.render('home', { recipes: mostAccessed })
@@ -19,11 +19,19 @@ routes.get('/about', function (req, res) {
 })
 
 routes.get('/recipes', function (req, res) {
-    res.render('recipes', { recipes: data })
+    res.render('recipes', { recipes: data.recipes })
 })
 
 routes.get('/recipes/:id', function (req, res) {
-    res.render('recipe-details', { recipe: data[req.params.id] })
+    const { id } = req.params
+
+    const foundRecipe = data.recipes.find(function (recipe) {
+        return recipe.id == id
+    })
+
+    if (!foundRecipe) return res.send('Receita não encontrada!')
+
+    res.render('recipe-details', { recipe: foundRecipe })
 })
 
 routes.get("/admin", function (req, res) {

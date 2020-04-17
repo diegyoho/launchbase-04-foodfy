@@ -10,12 +10,14 @@ for (const item of menuItems) {
         item.classList.add('active')
 }
 
-for (const [index, card] of cards.entries()) {
+for (const card of cards) {
 
-    if (!card.classList.contains('admin'))
+    if (!card.classList.contains('admin')) {
         card.addEventListener('click', function () {
+            const index = card.getAttribute('id')
             window.location.href = `/recipes/${index}`
         })
+    }
 }
 
 for (const detail of details) {

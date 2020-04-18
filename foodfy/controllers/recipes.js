@@ -88,7 +88,6 @@ exports.put = function (req, res) {
     const recipe = {
         ...foundRecipe,
         ...req.body,
-        birth: Date.parse(req.body.birth),
         id: Number(req.body.id)
     }
 
@@ -97,7 +96,7 @@ exports.put = function (req, res) {
     fs.writeFile('data.json', JSON.stringify(data, null, 2), function (err) {
         if (err) return res.send("Erro na escrita do arquivo!")
 
-        return res.redirect(`/recipes/${id}`)
+        return res.redirect(`/admin/recipes/${id}`)
     })
 }
 
@@ -113,6 +112,6 @@ exports.delete = function (req, res) {
     fs.writeFile('data.json', JSON.stringify(data, null, 2), function (err) {
         if (err) return res.send("Erro na escrita do arquivo!")
 
-        return res.redirect('/recipes')
+        return res.redirect('/admin/recipes/')
     })
 }

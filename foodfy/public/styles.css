@@ -126,6 +126,8 @@ header nav ul a {
 
 .card img{
     width: 100%;
+    height: 88px;
+    object-fit: cover;
     border-radius: 15px;
 }
 
@@ -178,7 +180,10 @@ article p {
 }
 
 #recipe-header img {
+    width: 940px;
+    height: 280px;
     border-radius: 15px;
+    object-fit: cover;
 }
 
 #recipe-header .info {
@@ -224,7 +229,7 @@ article p {
     line-height: 0;
 }
 
-#recipe-details a {
+#recipe-details .details a {
     color: #999;
     font-size: 12px;
     font-weight: bold;
@@ -270,6 +275,7 @@ header.admin {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .button {
@@ -318,4 +324,13 @@ form button {
 
 div + button, input + input {
     margin-top: 15px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons .delete {
+    background-color: #DC4747;
+    margin-right: 10px;
 }

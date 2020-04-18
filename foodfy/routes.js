@@ -31,7 +31,7 @@ routes.get('/recipes/:id', function (req, res) {
 
     if (!foundRecipe) return res.send('Receita não encontrada!')
 
-    res.render('recipe-details', { recipe: foundRecipe })
+    res.render('recipe', { recipe: foundRecipe })
 })
 
 routes.get("/admin", function (req, res) {

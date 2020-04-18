@@ -34,22 +34,24 @@ for (const detail of details) {
     })
 }
 
-addIngredient.addEventListener('click', function () {
-    const lastIngredient = document.querySelector('input[name="ingredients[]"]').cloneNode(true)
-    if (lastIngredient.value == '') {
-        alert('Preencha o último ingrediente!')
-        return
-    }
-    lastIngredient.value = ''
-    document.querySelector('.ingredients').appendChild(lastIngredient)
-})
+if (addIngredient)
+    addIngredient.addEventListener('click', function () {
+        const lastIngredient = document.querySelector('input[name="ingredients[]"]').cloneNode(true)
+        if (lastIngredient.value == '') {
+            alert('Preencha o último ingrediente!')
+            return
+        }
+        lastIngredient.value = ''
+        document.querySelector('.ingredients').appendChild(lastIngredient)
+    })
 
-addStep.addEventListener('click', function () {
-    const lastStep = document.querySelector('input[name="preparation[]"]').cloneNode(true)
-    if (lastStep.value == '') {
-        alert('Preencha o último passo!')
-        return
-    }
-    lastStep.value = ''
-    document.querySelector('.preparation').appendChild(lastStep)
-})
+if (addStep)
+    addStep.addEventListener('click', function () {
+        const lastStep = document.querySelector('input[name="preparation[]"]').cloneNode(true)
+        if (lastStep.value == '') {
+            alert('Preencha o último passo!')
+            return
+        }
+        lastStep.value = ''
+        document.querySelector('.preparation').appendChild(lastStep)
+    })

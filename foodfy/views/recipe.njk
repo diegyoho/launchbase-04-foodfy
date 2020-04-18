@@ -1,0 +1,11 @@
+{% extends 'layout.njk' %}
+
+{% block head %}
+    <title>{{ recipe.title }}</title>
+{% endblock %}
+
+{% block content %}
+    <main id="recipe-details">
+        {% include 'recipe-details.njk' %}
+    </main>
+{% endblock %}

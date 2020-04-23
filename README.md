@@ -51,16 +51,8 @@
 - [x] Persistindo dados no Foodfy - 
 <a href="https://github.com/Rocketseat/bootcamp-launchbase-desafios-05/blob/master/desafios/05-persistindo-dados-foodfy.md">Descrição</a>
 
-##### Site
-
 <div align="center">
     <img alt="Exemplo" src="docs/imgs/preview-4.gif" width="100%" />
-</div>
-
-##### Área administrativa
-
-<div align="center">
-    <img alt="Exemplo" src="docs/imgs/preview-5.gif" width="100%" />
 </div>
 
 #### Instalação:

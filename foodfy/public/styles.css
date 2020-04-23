@@ -174,38 +174,38 @@ article p {
     color: #444;
 }
 
-/* === RECIPE DETAILS === */
+/* === DETAILS === */
 
-#recipe-header {
+#details-header {
     margin-bottom: 50px;
 }
 
-#recipe-header img {
+#details-header img {
     width: 940px;
     height: 280px;
     border-radius: 15px;
     object-fit: cover;
 }
 
-#recipe-header .info {
+#details-header .info {
     margin-top: 50px;
     text-align: center;
 }
 
-#recipe-header .info h1 {
+#details-header .info h1 {
     font-size: 36px;
     font-weight: bold;
 }
 
-#recipe-header .info p {
+#details-header .info p {
     font-size: 20px;
 }
 
-#recipe-details h2 {
+#details h2 {
     display: inline;
 }
 
-#recipe-details .content {
+#details .content {
     margin: 20px 0 30px;
     font-size: 18px;
     line-height: 28px;
@@ -214,7 +214,7 @@ article p {
     visibility: visible;
 }
 
-#recipe-details ul {
+#details ul {
     list-style-position: inside;
 }
 
@@ -222,15 +222,15 @@ article p {
     white-space: pre-line;
 }
 
-#recipe-details .content.hidden,
-#recipe-details .content.hidden * {
+#details .content.hidden,
+#details .content.hidden * {
     height: 0;
     opacity: 0;
     visibility: hidden;
     line-height: 0;
 }
 
-#recipe-details .details a {
+#details .show-hide a {
     color: #999;
     font-size: 12px;
     font-weight: bold;
@@ -310,11 +310,14 @@ form input {
 }
 
 form select {
-    color: #999;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+
+select:invalid {
+    color: gray;
+  }
 
 .select {
     position: relative;
@@ -395,4 +398,23 @@ div + button, input + input {
     color: var(--primary-action);
     font-weight: bold;
     font-size: 14px;
+}
+
+/* === DETAILS CHEF === */
+
+#details-header.chef {
+    text-align: center;
+    height: auto;
+}
+
+#details-header.chef img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 30px;
+}
+
+#details-header.chef .info {
+    margin-top: 30px;
 }

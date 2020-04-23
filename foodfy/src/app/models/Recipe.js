@@ -117,5 +117,16 @@ module.exports = {
 
             callback(results.rows)
         })
+    },
+    allBy(chefId, callback) {
+        db.query(`
+            SELECT recipes.*, chefs.name AS chef_name
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            WHERE recipes.chef_id = ${chefId}`, function (err, results) {
+            if (err) throw `Database error! ${err}`
+
+            callback(results.rows)
+        })
     }
 }

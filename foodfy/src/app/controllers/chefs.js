@@ -1,5 +1,6 @@
 const { date } = require('../../lib/utils')
 const Chef = require('../models/Chef')
+const Recipe = require('../models/Recipe')
 
 module.exports = {
     index(req, res) {
@@ -43,7 +44,10 @@ module.exports = {
                 ...chef,
                 created_at: date(chef.created_at).format
             }
-            return res.render('admin/chefs/show', { chef })
+            
+            Recipe.allBy(chef.id, function(recipes) {
+                return res.render('admin/chefs/show', { chef, recipes })
+            })
         })
     },
     edit(req, res) {

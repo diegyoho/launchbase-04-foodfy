@@ -80,7 +80,9 @@ module.exports = {
         Recipe.find(id, function (recipe) {
             if (!recipe) return res.send('Recipe not found!')
 
-            return res.render('admin/recipes/edit', { recipe })
+            Chef.all(function (chefs) {
+                return res.render('admin/recipes/edit', { recipe, chefs })
+            })
         })
     },
     put(req, res) {

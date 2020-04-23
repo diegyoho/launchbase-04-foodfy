@@ -1,12 +1,37 @@
 {% extends 'admin/layout.njk' %}
 
 {% block content %}
-    <main id="recipe-details">
+    <main id="details">
         <div class="title">
-            <h2>Receita:
-                {{ recipe.title }}</h2>
-            <a href="/admin/recipes/{{ recipe.id }}/edit" class="button">Editar receita</a>
+            <h2>Chef: {{ chef.name }}</h2>
+            <a href="/admin/chefs/{{ chef.id }}/edit" class="button">Editar chef</a>
         </div>
-        {% include 'recipe-details.njk' %}
+        {# {% include 'recipe-details.njk' %} #}
+        <section id="details-header" class="chef">
+            <img src="{{ chef.avatar_url }}" alt="Imagem de {{ chef.name }}">
+            <div class="info">
+                <h1>{{ chef.name }}</h1>
+                <p class="recipes">
+                    {{ chef.recipes }} receita{% if chef.recipes != 1 %}s{% endif %}</p>
+            </div>
+        </section>
+        <section id="recipes" class="admin">
+            <h2>Receitas</h2>
+            <div id="cards">
+
+                {% for recipe in recipes %}
+                    <div class="card admin">
+                        <img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}">
+                        <div class="info">
+                            <h3>{{ recipe.title }}</h3>
+                            <p class="author">por
+                                {{ recipe.chef_name }}</p>
+                            <a href="/admin/recipes/{{ recipe.id }}">Visualizar</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </section>
     </main>
 {% endblock %}

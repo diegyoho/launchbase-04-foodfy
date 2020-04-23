@@ -1,4 +1,4 @@
-<section id="recipe-header">
+<section id="details-header">
     <img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}">
     <div class="info">
         <h1>{{ recipe.title }}</h1>
@@ -6,9 +6,9 @@
             {{ recipe.chef_name }}</p>
     </div>
 </section>
-<section id="ingredients" class="details">
+<section id="ingredients">
     <h2>Ingredientes</h2>
-    <a>MOSTRAR</a>
+    <a class="show-hide">MOSTRAR</a>
     <div class="content hidden">
         <ul>
             {% for ingredient in recipe.ingredients %}
@@ -17,9 +17,9 @@
         </ul>
     </div>
 </section>
-<section id="preparation" class="details">
+<section id="preparation">
     <h2>Modo de preparo</h2>
-    <a>MOSTRAR</a>
+    <a class="show-hide">MOSTRAR</a>
     <div class="content hidden">
         <ul>
             {% for step in recipe.preparation %}
@@ -28,9 +28,9 @@
         </ul>
     </div>
 </section>
-<section id="information" class="details">
+<section id="information">
     <h2>Informações adicionais</h2>
-    <a>MOSTRAR</a>
+    <a class="show-hide">MOSTRAR</a>
     <div class="content hidden">
         <p>{{ recipe.information }}</p>
     </div>

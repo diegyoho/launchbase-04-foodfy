@@ -36,7 +36,7 @@ for (const detail of details) {
 
 if (addIngredient)
     addIngredient.addEventListener('click', function () {
-        const lastIngredient = document.querySelector('input[name="ingredients[]"]').cloneNode(true)
+        const lastIngredient = document.querySelector('input[name="ingredients[]"]:last-child').cloneNode(true)
         if (lastIngredient.value == '') {
             alert('Preencha o último ingrediente!')
             return
@@ -47,7 +47,7 @@ if (addIngredient)
 
 if (addStep)
     addStep.addEventListener('click', function () {
-        const lastStep = document.querySelector('input[name="preparation[]"]').cloneNode(true)
+        const lastStep = document.querySelector('input[name="preparation[]"]:last-child').cloneNode(true)
         if (lastStep.value == '') {
             alert('Preencha o último passo!')
             return

@@ -47,7 +47,7 @@ module.exports = {
         const query = `
             UPDATE chefs SET
                 name=($1),
-                avatar_url=($2),
+                avatar_url=($2)
             WHERE id = $3
         `
 

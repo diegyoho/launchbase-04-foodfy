@@ -1,19 +1,19 @@
-{% extends './layout.njk' %}
+{% extends 'admin/layout.njk' %}
 
 {% block content %}
     <main>
-        <form action="/admin/recipes?_method=PUT" method="POST">
+        <form action="/admin/chefs?_method=PUT" method="POST">
             <div class="title">
-                <h2>Editando receita</h2>
+                <h2>Editando chef</h2>
                 <div class="buttons">
                     <button type="submit" class="button delete">Deletar</button>
-                    <button type="submit" class="button">Salvar receita</button>
+                    <button type="submit" class="button">Salvar chef</button>
                 </div>
             </div>
             <div class="content">
                 {% include './fields.njk' %}
             </div>
-            <input type="hidden" name="id" value="{{ recipe.id }}">
+            <input type="hidden" name="id" value="{{ chef.id }}">
         </form>
     </main>
     <script>
@@ -28,7 +28,7 @@
             .addEventListener('submit', function (event) {
                 document
                     .querySelector('form')
-                    .action = `/admin/recipes?_method=${method}`
+                    .action = `/admin/chefs?_method=${method}`
 
                 if (method === 'DELETE') {
                     const confirmation = confirm('Desejar realmente deletar?')

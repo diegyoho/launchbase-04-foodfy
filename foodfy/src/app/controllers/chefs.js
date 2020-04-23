@@ -3,7 +3,7 @@ const Chef = require('../models/Chef')
 
 module.exports = {
     index(req, res) {
-        Chef.all(params, function (chefs) {
+        Chef.all(function (chefs) {
             return res.render('admin/chefs/index', { chefs })
         })
     },
@@ -64,22 +64,14 @@ module.exports = {
         }
 
         const {
-            chef_id,
-            image,
-            title,
-            ingredients,
-            preparation,
-            information,
+            name,
+            avatar_url,
             id
         } = req.body
 
         const data = [
-            0,
-            image,
-            title,
-            ingredients,
-            preparation,
-            information,
+            name,
+            avatar_url,
             id
         ]
 

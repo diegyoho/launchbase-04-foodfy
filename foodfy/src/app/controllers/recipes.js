@@ -1,5 +1,6 @@
 const { date } = require('../../lib/utils')
 const Recipe = require('../models/Recipe')
+const Chef = require('../models/Chef')
 
 module.exports = {
     index(req, res) {
@@ -25,7 +26,9 @@ module.exports = {
         })
     },
     create(req, res) {
-        return res.render('admin/recipes/create')
+        Chef.all(function (chefs) {
+            return res.render('admin/recipes/create', { chefs })
+        })
     },
     post(req, res) {
         const keys = Object.keys(req.body)
@@ -45,7 +48,7 @@ module.exports = {
         } = req.body
 
         const data = [
-            0,
+            chef_id,
             image,
             title,
             ingredients,
@@ -99,7 +102,7 @@ module.exports = {
         } = req.body
 
         const data = [
-            0,
+            chef_id,
             image,
             title,
             ingredients,

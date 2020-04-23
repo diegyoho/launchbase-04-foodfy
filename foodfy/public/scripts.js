@@ -4,6 +4,7 @@ const details = document.querySelectorAll('#recipe-details .details')
 const menuItems = document.querySelectorAll('nav ul a')
 const addIngredient = document.querySelector('button.add-ingredient')
 const addStep = document.querySelector('button.add-step')
+const selects = document.querySelectorAll('select')
 
 for (const item of menuItems) {
     if (currentLocation.includes(item.getAttribute('href')))
@@ -55,3 +56,10 @@ if (addStep)
         lastStep.value = ''
         document.querySelector('.preparation').appendChild(lastStep)
     })
+
+for (const select of selects) {
+    select.addEventListener('change', function () {
+        if (select.value !== '')
+            select.style = 'color: #111;'
+    })
+}

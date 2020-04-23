@@ -1,4 +1,4 @@
-{% extends 'layout.njk' %}
+{% extends 'site/layout.njk' %}
 
 {% block head %}
     <title>Receitas</title>
@@ -15,7 +15,7 @@
                         <div class="info">
                             <h3>{{ recipe.title }}</h3>
                             <p class="author">por
-                                {{ recipe.author }}</p>
+                                {{ recipe.chef_name }}</p>
                         </div>
                     </div>
                 {% endfor %}

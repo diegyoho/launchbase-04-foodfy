@@ -3,8 +3,9 @@ const db = require('../../config/db')
 module.exports = {
     all(callback) {
         db.query(`
-            SELECT *
-            FROM recipes`, function (err, results) {
+            SELECT recipes.*, chefs.name AS chef_name
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)`, function (err, results) {
             if (err) throw `Database error! ${err}`
 
             callback(results.rows)
@@ -31,7 +32,11 @@ module.exports = {
         })
     },
     find(id, callback) {
-        db.query(`SELECT * FROM recipes WHERE id = ${id}`, function (err, results) {
+        db.query(`
+            SELECT recipes.*, chefs.name AS chef_name
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            WHERE recipes.id = ${id}`, function (err, results) {
             if (err) throw `Database error! ${err}`
 
             callback(results.rows[0])
@@ -39,9 +44,10 @@ module.exports = {
     },
     findBy(filter, callback) {
         db.query(`
-            SELECT *
+            SELECT recipes.*, chefs.name AS chef_name
             FROM recipes
-            WHERE name ILIKE '%${filter}%'`, function (err, results) {
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            WHERE recipes.name ILIKE '%${filter}%'`, function (err, results) {
             if (err) throw `Database error! ${err}`
 
             callback(results.rows)
@@ -55,7 +61,7 @@ module.exports = {
                 title=($3),
                 ingredients=($4),
                 preparation=($5),
-                information=($6),
+                information=($6)
             WHERE id = $7
         `
 
@@ -100,8 +106,9 @@ module.exports = {
         }
 
         const query = `
-            SELECT recipes.*, ${totalQuery}
+            SELECT recipes.*, ${totalQuery}, chefs.name AS chef_name
             FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
             ${endQuery}
         `
 

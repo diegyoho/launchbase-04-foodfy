@@ -1,11 +1,21 @@
 <p class="label">Imagem da receita</p>
 <input type="url" name="image" placeholder="https://" value="{{ recipe.image }}">
 
+<p class="label">Chef</p>
+<div class="select">
+    <select name="chef_id">
+        <option value="" selected="selected" hidden="hidden">Selecione um chef</option>
+        {% for chef in chefs %}
+            <option value="{{ chef.id }}" {% if chef.id == recipe.chef_id %} selected="selected" {% endif %}>{{ chef.name }}</option>
+        {% endfor %}
+    </select>
+    <span class="material-icons">
+        keyboard_arrow_down
+    </span>
+</div>
+
 <p class="label">Nome da Receita</p>
 <input type="text" name="title" value="{{ recipe.title }}">
-
-<p class="label">Autor</p>
-<input type="text" name="author" value="{{ recipe.author }}">
 
 <p class="label">Ingredientes</p>
 <div class="ingredients">

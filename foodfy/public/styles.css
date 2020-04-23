@@ -1,4 +1,5 @@
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 :root {
     --primary-action: #6558C3;
@@ -236,7 +237,8 @@ article p {
     cursor: pointer;
 }
 
-/* === Admin === */
+/* === ADMIN === */
+
 header.admin {
     background-color: black;
     margin-bottom: 30px;
@@ -293,16 +295,43 @@ form .label {
     margin-bottom: 10px;
 }
 
+form select,
 form textarea,
 form input {
     font-family: 'Roboto', sans-serif;
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 24px;
-    padding: 12px;
+    font-size: 16px;
+    padding: 15px 20px;
     outline: none;
     resize: none;
+    background-color: transparent;
+}
+
+form select {
+    color: #999;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select {
+    position: relative;
+}
+
+.select span {
+    color: #999;
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+select option {
+    color: #111;
 }
 
 form textarea {
@@ -333,4 +362,37 @@ div + button, input + input {
 .buttons .delete {
     background-color: #DC4747;
     margin-right: 10px;
+}
+
+.admin nav ul a {
+    font-weight: bold;
+    color: #999;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.admin a:hover, .admin a.active {
+    color: white;
+}
+
+.card.admin.chef {
+    align-items: center;
+}
+
+.card.admin.chef img {
+    height: 64px;
+    width: 64px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.card.admin.chef h3 {
+    margin-bottom: 8px;
+}
+
+.card.admin.chef .info a {
+    color: var(--primary-action);
+    font-weight: bold;
+    font-size: 14px;
 }

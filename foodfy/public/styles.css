@@ -446,3 +446,22 @@ div + button, input + input {
 #details-header.chef .info {
     margin-top: 30px;
 }
+
+/* === PAGINATION === */
+
+.pagination {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-action);
+}
+
+.pagination * {
+    color: var(--primary-action);
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.pagination a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}

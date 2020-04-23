@@ -30,7 +30,7 @@ module.exports = {
         Recipe.paginate(params, function (recipes) {
 
             const pagination = {
-                totalPages: recipes.lenght > 0 ? Math.ceil(recipes[0].total / limit) : 0,
+                totalPages: recipes.length > 0 ? Math.ceil(recipes[0].total / limit) : 0,
                 page
             }
 

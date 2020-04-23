@@ -4,10 +4,10 @@ const Chef = require('../models/Chef')
 
 module.exports = {
     index(req, res) {
-        let { page } = req.query
+        let { page, limit } = req.query
 
         page = page || 1
-        const limit = 9
+        limit = limit || 8
 
         let offset = limit * (page - 1)
 
@@ -17,8 +17,9 @@ module.exports = {
         }
 
         Recipe.paginate(params, function (recipes) {
+            console.log(recipes.length)
             const pagination = {
-                totalPages: recipes.lenght > 0 ? Math.ceil(recipes[0].total / limit) : 0,
+                totalPages: recipes.length > 0 ? Math.ceil(recipes[0].total / limit) : 0,
                 page
             }
 

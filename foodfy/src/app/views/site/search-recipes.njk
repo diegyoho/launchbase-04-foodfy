@@ -1,0 +1,27 @@
+{% extends 'site/layout.njk' %}
+
+{% block head %}
+    <title>Receitas</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section id="recipes">
+            <h2>Buscando por “{{ filter }}”</h2>
+            <div id="cards">
+
+                {% for recipe in recipes %}
+                    <div class="card" id="{{ recipe.id }}">
+                        <img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}">
+                        <div class="info">
+                            <h3>{{ recipe.title }}</h3>
+                            <p class="author">por
+                                {{ recipe.chef_name }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </section>
+    </main>
+{% endblock %}

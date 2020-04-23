@@ -10,6 +10,8 @@ routes.get('/about', function (req, res) {
 })
 routes.get('/recipes', site.recipes)
 routes.get('/recipes/:id', site.showRecipe)
+routes.get('/chefs', site.chefs)
+routes.get('/search', site.search)
 
 routes.get("/admin", function (req, res) {
     res.redirect('/admin/recipes')

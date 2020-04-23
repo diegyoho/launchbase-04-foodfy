@@ -47,7 +47,7 @@ module.exports = {
             SELECT recipes.*, chefs.name AS chef_name
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-            WHERE recipes.name ILIKE '%${filter}%'`, function (err, results) {
+            WHERE recipes.title ILIKE '%${filter}%'`, function (err, results) {
             if (err) throw `Database error! ${err}`
 
             callback(results.rows)

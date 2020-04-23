@@ -27,6 +27,20 @@ nav, main, #panel {
     margin: 0 auto;
 }
 
+header nav,
+header nav form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav form input {
+    width: 250px;
+    font-size: 14px;
+    padding: 10px 15px;
+    margin-right: 8px;
+}
+
 main {
     padding: 20px 0;
 }
@@ -127,7 +141,7 @@ header nav ul a {
 
 .card img{
     width: 100%;
-    height: 88px;
+    height: 128px;
     object-fit: cover;
     border-radius: 15px;
 }
@@ -393,7 +407,7 @@ div + button, input + input {
 }
 
 .card.admin.chef h3 {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .card.admin.chef .info a {
@@ -402,11 +416,16 @@ div + button, input + input {
     font-size: 14px;
 }
 
+.card.admin.chef .info p {
+    margin: 0;
+}
+
 /* === ADMIN CHEF === */
 
-#chefs.admin #cards{
+
+#chefs #cards{
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 /* === DETAILS CHEF === */

@@ -1,6 +1,6 @@
 const currentLocation = window.location.pathname
 const cards = document.querySelectorAll('.card')
-const details = document.querySelectorAll('#details .details')
+const showHides = document.querySelectorAll('#details .show-hide')
 const menuItems = document.querySelectorAll('nav ul a')
 const addIngredient = document.querySelector('button.add-ingredient')
 const addStep = document.querySelector('button.add-step')
@@ -21,16 +21,14 @@ for (const card of cards) {
     }
 }
 
-for (const detail of details) {
-    const a = detail.querySelector('a')
-
-    a.addEventListener('click', function () {
-        if (detail.querySelector('.content').classList.contains('hidden')) {
-            a.innerText = 'ESCONDER'
-            detail.querySelector('.content').classList.remove('hidden')
+for (const showHide of showHides) {
+    showHide.addEventListener('click', function () {
+        if (showHide.nextElementSibling.classList.contains('hidden')) {
+            showHide.innerText = 'ESCONDER'
+            showHide.nextElementSibling.classList.remove('hidden')
         } else {
-            a.innerText = 'MOSTRAR'
-            detail.querySelector('.content').classList.add('hidden')
+            showHide.innerText = 'MOSTRAR'
+            showHide.nextElementSibling.classList.add('hidden')
         }
     })
 }

@@ -31,8 +31,13 @@
                     .action = `/admin/chefs?_method=${method}`
 
                 if (method === 'DELETE') {
-                    const confirmation = confirm('Desejar realmente deletar?')
-
+                    let confirmation = false
+                    
+                    if(parseInt({{ chef.recipes }}) === 0)
+                        confirmation = confirm('Desejar realmente deletar?')
+                    else
+                        alert('Chefs que possuem receitas não podem ser deletados!')
+                    
                     if (!confirmation) {
                         event.preventDefault()
                         method = 'PUT'

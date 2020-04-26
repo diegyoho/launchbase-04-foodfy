@@ -12,7 +12,7 @@
     <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%23F8952D">
   </a>
 
-  <a href="https://github.com/diegyohoho/launchbase-04/blob/master/LICENSE" >
+  <a href="./LICENSE" >
     <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
   </a>
   
@@ -68,8 +68,8 @@ npm install
 npm start
 ```
 
-###### Código [aqui](https://github.com/diegyohoho/launchbase-04-foodfy/tree/master/foodfy)!
+###### Código [aqui](./foodfy)!
 
 ## Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/diegyohoho/launchbase-04/blob/master/LICENSE) para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.

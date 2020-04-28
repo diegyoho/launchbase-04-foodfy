@@ -14,7 +14,7 @@ for (const item of menuItems) {
 for (const card of cards) {
 
     if (!card.classList.contains('admin')) {
-        card.addEventListener('click', function () {
+        card.addEventListener('click', () => {
             const index = card.getAttribute('id')
             window.location.href = `/recipes/${index}`
         })
@@ -22,7 +22,7 @@ for (const card of cards) {
 }
 
 for (const showHide of showHides) {
-    showHide.addEventListener('click', function () {
+    showHide.addEventListener('click', () => {
         if (showHide.nextElementSibling.classList.contains('hidden')) {
             showHide.innerText = 'ESCONDER'
             showHide.nextElementSibling.classList.remove('hidden')
@@ -34,7 +34,7 @@ for (const showHide of showHides) {
 }
 
 if (addIngredient)
-    addIngredient.addEventListener('click', function () {
+    addIngredient.addEventListener('click', () => {
         const lastIngredient = document.querySelector('input[name="ingredients[]"]:last-child').cloneNode(true)
         if (lastIngredient.value == '') {
             alert('Preencha o último ingrediente!')
@@ -45,7 +45,7 @@ if (addIngredient)
     })
 
 if (addStep)
-    addStep.addEventListener('click', function () {
+    addStep.addEventListener('click', () => {
         const lastStep = document.querySelector('input[name="preparation[]"]:last-child').cloneNode(true)
         if (lastStep.value == '') {
             alert('Preencha o último passo!')

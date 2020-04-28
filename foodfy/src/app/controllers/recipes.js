@@ -3,7 +3,7 @@ const Recipe = require('../models/Recipe')
 const Chef = require('../models/Chef')
 
 module.exports = {
-    index(req, res) {
+    async index(req, res) {
         let { page, limit } = req.query
 
         page = page || 1
@@ -16,21 +16,21 @@ module.exports = {
             offset
         }
 
-        Recipe.paginate(params, function (recipes) {
-            const pagination = {
-                totalPages: recipes.length > 0 ? Math.ceil(recipes[0].total / limit) : 0,
-                page
-            }
+        const recipes = (await Recipe.paginate(params)).rows
 
-            return res.render('admin/recipes/index', { recipes, pagination })
-        })
+        const pagination = {
+            totalPages: recipes.length > 0 ? Math.ceil(recipes[0].total / limit) : 0,
+            page
+        }
+
+        return res.render('admin/recipes/index', { recipes, pagination })
     },
-    create(req, res) {
-        Chef.all(function (chefs) {
-            return res.render('admin/recipes/create', { chefs })
-        })
+    async create(req, res) {
+        const chefs = (await Chef.all()).rows
+
+        return res.render('admin/recipes/create', { chefs })
     },
-    post(req, res) {
+    async post(req, res) {
         const keys = Object.keys(req.body)
 
         for (const key of keys) {
@@ -57,35 +57,36 @@ module.exports = {
             date(Date.now()).iso
         ]
 
-        Recipe.create(data, function (recipe) {
-            return res.redirect(`/admin/recipes/${recipe.id}`)
-        })
+        const recipe = (await Recipe.create(data)).rows[0]
+
+        return res.redirect(`/admin/recipes/${recipe.id}`)
     },
-    show(req, res) {
+    async show(req, res) {
         const { id } = req.params
 
-        Recipe.find(id, function (recipe) {
-            if (!recipe) return res.send('Recipe not found!')
+        let recipe = (await Recipe.find(id)).rows[0]
 
-            recipe = {
-                ...recipe,
-                created_at: date(recipe.created_at).format
-            }
-            return res.render('admin/recipes/show', { recipe })
-        })
+        if (!recipe) return res.send('Recipe not found!')
+
+        recipe = {
+            ...recipe,
+            created_at: date(recipe.created_at).format
+        }
+
+        return res.render('admin/recipes/show', { recipe })
     },
-    edit(req, res) {
+    async edit(req, res) {
         const { id } = req.params
 
-        Recipe.find(id, function (recipe) {
-            if (!recipe) return res.send('Recipe not found!')
+        const recipe = (await Recipe.find(id)).rows[0]
 
-            Chef.all(function (chefs) {
-                return res.render('admin/recipes/edit', { recipe, chefs })
-            })
-        })
+        if (!recipe) return res.send('Recipe not found!')
+
+        const chefs = (await Chef.all()).rows
+
+        return res.render('admin/recipes/edit', { recipe, chefs })
     },
-    put(req, res) {
+    async put(req, res) {
         const keys = Object.keys(req.body)
 
         for (const key of keys) {
@@ -113,15 +114,15 @@ module.exports = {
             id
         ]
 
-        Recipe.update(data, function () {
-            return res.redirect(`/admin/recipes/${id}`)
-        })
+        await Recipe.update(data)
+
+        return res.redirect(`/admin/recipes/${id}`)
     },
-    delete(req, res) {
+    async delete(req, res) {
         const { id } = req.body
 
-        Recipe.delete(id, function () {
-            return res.redirect('/admin/recipes')
-        })
+        await Recipe.delete(id)
+
+        return res.redirect('/admin/recipes')
     }
 }

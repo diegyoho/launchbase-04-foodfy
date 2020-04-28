@@ -1,5 +1,5 @@
 module.exports = {
-    date: function (timestamp) {
+    date(timestamp) {
         const date = new Date(timestamp)
 
         const year = date.getUTCFullYear()

@@ -20,12 +20,10 @@
         let method = 'PUT'
         document
             .querySelector('.delete')
-            .addEventListener('click', function (event) {
-                method = 'DELETE'
-            })
+            .addEventListener('click', event => method = 'DELETE')
         document
             .querySelector('form')
-            .addEventListener('submit', function (event) {
+            .addEventListener('submit', event => {
                 document
                     .querySelector('form')
                     .action = `/admin/chefs?_method=${method}`

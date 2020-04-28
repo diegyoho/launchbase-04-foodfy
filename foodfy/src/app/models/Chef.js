@@ -1,18 +1,14 @@
 const db = require('../../config/db')
 
 module.exports = {
-    all(callback) {
-        db.query(`
+    all() {
+        return db.query(`
             SELECT chefs.*, count(recipes.id) AS recipes
             FROM chefs
             LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
-            GROUP BY chefs.id`, function (err, results) {
-            if (err) throw `Database error! ${err}`
-
-            callback(results.rows)
-        })
+            GROUP BY chefs.id`)
     },
-    create(data, callback) {
+    create(data) {
         const query = `
             INSERT INTO chefs (
                 name,
@@ -22,35 +18,23 @@ module.exports = {
             RETURNING id
         `
 
-        db.query(query, data, function (err, results) {
-            if (err) throw `Database error! ${err}`
-
-            callback(results.rows[0])
-        })
+        return db.query(query, data)
     },
-    find(id, callback) {
-        db.query(`
+    find(id) {
+        return db.query(`
             SELECT chefs.*, count(recipes.id) AS recipes
             FROM chefs
             LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
-            WHERE chefs.id = ${id}
-            GROUP BY chefs.id`, function (err, results) {
-            if (err) throw `Database error! ${err}`
-
-            callback(results.rows[0])
-        })
+            WHERE chefs.id = $1
+            GROUP BY chefs.id`, [id])
     },
-    findBy(filter, callback) {
-        db.query(`
+    findBy(filter) {
+        return db.query(`
             SELECT *
             FROM chefs
-            WHERE name ILIKE '%${filter}%'`, function (err, results) {
-            if (err) throw `Database error! ${err}`
-
-            callback(results.rows)
-        })
+            WHERE name ILIKE '%${filter}%'`)
     },
-    update(data, callback) {
+    update(data) {
         const query = `
             UPDATE chefs SET
                 name=($1),
@@ -58,20 +42,12 @@ module.exports = {
             WHERE id = $3
         `
 
-        db.query(query, data, function (err, results) {
-            if (err) throw `Database error! ${err}`
-
-            callback()
-        })
+        return db.query(query, data)
     },
-    delete(id, callback) {
-        db.query(`DELETE FROM chefs WHERE id = ${id}`, function (err, results) {
-            if (err) throw `Database error! ${err}`
-
-            callback()
-        })
+    delete(id) {
+        return db.query(`DELETE FROM chefs WHERE id = $1`, [id])
     },
-    paginate(params, callback) {
+    paginate(params) {
         let { filter, limit, offset } = params
 
         let totalQuery = `(
@@ -104,10 +80,6 @@ module.exports = {
             ${endQuery}
         `
 
-        db.query(query, function (err, results) {
-            if (err) throw `Database error! ${err}`
-
-            callback(results.rows)
-        })
+        return db.query(query)
     }
 }

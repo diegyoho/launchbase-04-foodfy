@@ -5,17 +5,13 @@ const chefs = require('./app/controllers/chefs')
 const site = require('./app/controllers/site')
 
 routes.get('/', site.home)
-routes.get('/about', function (req, res) {
-    res.render('site/about')
-})
+routes.get('/about', (req, res) => res.render('site/about'))
 routes.get('/recipes', site.recipes)
 routes.get('/recipes/:id', site.showRecipe)
 routes.get('/chefs', site.chefs)
 routes.get('/search', site.search)
 
-routes.get("/admin", function (req, res) {
-    res.redirect('/admin/recipes')
-})
+routes.get("/admin", (req, res) => res.redirect('/admin/recipes'))
 routes.get("/admin/recipes", recipes.index)
 routes.get("/admin/recipes/create", recipes.create)
 routes.get("/admin/recipes/:id", recipes.show)
@@ -32,8 +28,6 @@ routes.post("/admin/chefs", chefs.post)
 routes.put("/admin/chefs", chefs.put)
 routes.delete("/admin/chefs", chefs.delete)
 
-routes.use(function (req, res) {
-    res.status(404).render('not-found')
-})
+routes.use((req, res) => res.status(404).render('not-found'))
 
 module.exports = routes

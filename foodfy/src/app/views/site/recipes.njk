@@ -12,7 +12,7 @@
 
                 {% for recipe in recipes %}
                     <div class="card" id="{{ recipe.id }}">
-                        <img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}">
+                        <img src="{{ recipe.images[0].src }}" alt="Imagem de {{ recipe.title }}">
                         <div class="info">
                             <h3>{{ recipe.title }}</h3>
                             <p class="author">por

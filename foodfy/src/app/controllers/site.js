@@ -11,7 +11,24 @@ module.exports = {
                 offset: 0
             }
 
-            const recipes = (await Recipe.paginate(params)).rows
+            let recipes = (await Recipe.paginate(params)).rows
+            const recipesTemp = []
+
+            for(const recipe of recipes) {
+                let files = (await Recipe.files(recipe.id)).rows
+
+                files = files.map(file => ({
+                    ...file,
+                    src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+                }))
+
+                recipesTemp.push({
+                    ...recipe,
+                    images: files
+                })
+            }
+
+            recipes = recipesTemp
 
             return res.render('site/home', { recipes })
         } catch(err) {
@@ -32,7 +49,24 @@ module.exports = {
                 offset
             }
 
-            const recipes = (await Recipe.paginate(params)).rows
+            let recipes = (await Recipe.paginate(params)).rows
+            const recipesTemp = []
+
+            for(const recipe of recipes) {
+                let files = (await Recipe.files(recipe.id)).rows
+
+                files = files.map(file => ({
+                    ...file,
+                    src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+                }))
+
+                recipesTemp.push({
+                    ...recipe,
+                    images: files
+                })
+            }
+
+            recipes = recipesTemp
 
             const pagination = {
                 totalPages: recipes.length > 0 ? Math.ceil(recipes[0].total / limit) : 0,
@@ -52,9 +86,16 @@ module.exports = {
     
             if (!recipe) return res.send('Recipe not found!')
     
+            let files = (await Recipe.files(recipe.id)).rows
+
+            files = files.map(file => ({
+                ...file,
+                src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+            }))
+
             recipe = {
                 ...recipe,
-                created_at: date(recipe.created_at).format
+                images: files
             }
     
             return res.render('site/recipe', { recipe })
@@ -87,7 +128,24 @@ module.exports = {
         try {
             let { filter } = req.query
     
-            const recipes = (await Recipe.findBy(filter)).rows
+            let recipes = (await Recipe.findBy(filter)).rows
+            const recipesTemp = []
+
+            for(const recipe of recipes) {
+                let files = (await Recipe.files(recipe.id)).rows
+
+                files = files.map(file => ({
+                    ...file,
+                    src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+                }))
+
+                recipesTemp.push({
+                    ...recipe,
+                    images: files
+                })
+            }
+
+            recipes = recipesTemp
     
             return res.render('site/search-recipes', { recipes, filter })
         } catch(err) {

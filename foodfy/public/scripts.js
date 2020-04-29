@@ -113,14 +113,13 @@ const PhotosUpload = {
     preview: document.querySelector('#photos-preview'),
     uploadLimit: 1,
     files: [],
-    handleFileInput(event, limit, replace = false) {
+    handleFileInput(event, limit) {
         const { files: filesList } = event.target
         PhotosUpload.input = event.target
 
         PhotosUpload.uploadLimit = limit || 1
 
-        if(replace) {
-            console.log('Remove esta bosta')
+        if(PhotosUpload.uploadLimit === 1) {
             PhotosUpload.files = []
             PhotosUpload.input.files = PhotosUpload.getAllFiles()
             Array.from(PhotosUpload.preview.children).forEach(preview => preview.remove())
@@ -139,7 +138,7 @@ const PhotosUpload = {
             const reader = new FileReader()
 
             reader.onload = () => {
-                const image = PhotosUpload.getImage(reader.result, replace)
+                const image = PhotosUpload.getImage(reader.result)
                 PhotosUpload.preview.appendChild(image)
             }
 
@@ -163,7 +162,7 @@ const PhotosUpload = {
 
         return dataTransfer.files
     },
-    getImage(src, replace = false) {
+    getImage(src) {
         const image = new Image()
 
         image.src = String(src)
@@ -171,7 +170,7 @@ const PhotosUpload = {
         const div = document.createElement('div')
         div.classList.add('photo')
 
-        if(!replace) {
+        if(PhotosUpload.uploadLimit > 1) {
             div.onclick = PhotosUpload.removePhoto
             div.appendChild(PhotosUpload.getRemoveButton())
         }
@@ -189,7 +188,8 @@ const PhotosUpload = {
     removePhoto(event) {
         const photoDiv = event.target.parentNode
         const photosArray = Array.from(PhotosUpload.preview.children)
-        const index = photosArray.indexOf(photoDiv)
+        const index = photosArray.indexOf(photoDiv) - 1
+        console.log(event.target, photoDiv, index)
 
         PhotosUpload.files.splice(index, 1)
         PhotosUpload.input.files = PhotosUpload.getAllFiles()

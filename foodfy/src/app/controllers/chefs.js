@@ -58,7 +58,24 @@ module.exports = {
 
             if (!chef) return res.send('Chef not found!')
             
-            const recipes = (await Recipe.allBy(chef.id)).rows
+            let recipes = (await Recipe.allBy(chef.id)).rows
+            const recipesTemp = []
+
+            for(const recipe of recipes) {
+                let files = (await Recipe.files(recipe.id)).rows
+
+                files = files.map(file => ({
+                    ...file,
+                    src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+                }))
+
+                recipesTemp.push({
+                    ...recipe,
+                    images: files
+                })
+            }
+
+            recipes = recipesTemp
 
             const file = (await File.find(chef.file_id)).rows[0]
 

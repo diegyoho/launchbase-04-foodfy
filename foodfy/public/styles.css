@@ -506,15 +506,17 @@ form .field #photos-input {
     opacity: 0;
 
     cursor: pointer;
+
+
+    z-index: 100;
 }
 
 form .field #photos-preview {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px;
 
     width: 100%;
-    margin: 8px 0;
 }
 
 form .field.chef-avatar #photos-preview {
@@ -543,13 +545,14 @@ form .field.chef-avatar #photos-preview img {
     position: relative;
 }
 
+.recipe-images #photos-upload .button i,
 #photos-preview .photo i {
     position: absolute;
     top: 0;
     left: 0;
 
     background-color: rgba(255, 255, 255, 0.8);
-    color: var(--danger-color);
+    color: red;
 
     width: 100%;
     height: 100%;
@@ -558,7 +561,7 @@ form .field.chef-avatar #photos-preview img {
     justify-content: center;
     align-items: center;
 
-    font-size: 500%;
+    font-size: 200%;
     cursor: pointer;
 
     transition: opacity 200ms;
@@ -568,4 +571,43 @@ form .field.chef-avatar #photos-preview img {
 
 #photos-preview .photo i:hover {
     opacity: 1;
+}
+
+.recipe-images {
+    display: flex;
+}
+
+.recipe-images #photos-upload .button {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 3.5px;
+
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.recipe-images #photos-upload {
+    width: 150px;
+    height: 150px;
+}
+
+.recipe-images #photos-upload .button {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 3.5px;
+
+    width: 150px;
+    height: 150px;
+}
+
+.recipe-images #photos-upload .button i {
+    background: none;
+    color: #777;
+    opacity: 1;
+}
+
+.recipe-images #photos-preview .photo {
+    width: 150px;
+    height: 150px;
 }

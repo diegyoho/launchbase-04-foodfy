@@ -11,17 +11,22 @@ module.exports = {
         const query = `
             INSERT INTO recipes (
                 chef_id,
-                image,
                 title,
                 ingredients,
                 preparation,
-                information,
-                created_at
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+                information
+            ) VALUES ($1, $2, $3, $4, $5)
             RETURNING id
         `
+        const values = [
+            data.chef_id,
+            data.title,
+            data.ingredients,
+            data.preparation,
+            data.information
+        ]
 
-        return db.query(query, data)
+        return db.query(query, values)
     },
     find(id) {
         return db.query(`
@@ -41,15 +46,23 @@ module.exports = {
         const query = `
             UPDATE recipes SET
                 chef_id=($1),
-                image=($2),
-                title=($3),
-                ingredients=($4),
-                preparation=($5),
-                information=($6)
-            WHERE id = $7
+                title=($2),
+                ingredients=($3),
+                preparation=($4),
+                information=($5)
+            WHERE id = $6
         `
 
-        return db.query(query, data)
+        const values = [
+            data.chef_id,
+            data.title,
+            data.ingredients,
+            data.preparation,
+            data.information,
+            data.id
+        ]
+
+        return db.query(query, values)
     },
     delete(id) {
         return db.query(`DELETE FROM recipes WHERE id = $1`, [id])
@@ -96,5 +109,12 @@ module.exports = {
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
             WHERE recipes.chef_id = $1`, [chefId])
+    },
+    files(id) {
+        return db.query(`
+            SELECT files.* FROM files
+            LEFT JOIN recipe_files ON (recipe_files.file_id = files.id)
+            WHERE recipe_files.recipe_id = $1
+        `, [id])
     }
 }

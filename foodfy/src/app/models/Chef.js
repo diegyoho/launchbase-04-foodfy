@@ -11,14 +11,18 @@ module.exports = {
     create(data) {
         const query = `
             INSERT INTO chefs (
-                name,
-                avatar_url,
-                created_at
-            ) VALUES ($1, $2, $3)
+                file_id,
+                name
+            ) VALUES ($1, $2)
             RETURNING id
         `
 
-        return db.query(query, data)
+        const values = [
+            data.file_id,
+            data.name
+        ]
+
+        return db.query(query, values)
     },
     find(id) {
         return db.query(`
@@ -37,12 +41,16 @@ module.exports = {
     update(data) {
         const query = `
             UPDATE chefs SET
-                name=($1),
-                avatar_url=($2)
-            WHERE id = $3
+                name=($1)
+            WHERE id = $2
         `
 
-        return db.query(query, data)
+        const values = [
+            data.name,
+            data.id
+        ]
+
+        return db.query(query, values)
     },
     delete(id) {
         return db.query(`DELETE FROM chefs WHERE id = $1`, [id])

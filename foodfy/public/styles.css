@@ -302,16 +302,18 @@ header.admin {
     color: white;
 }
 
-form .label {
+form label {
     font-weight: bold;
     font-size: 16px;
     line-height: initial;
     margin-bottom: 10px;
 }
 
-form select,
-form textarea,
-form input {
+form input,
+form .field input[type="text"],
+form .field input[type="number"],
+form .field textarea,
+form .field select {
     font-family: 'Roboto', sans-serif;
     width: 100%;
     border: 1px solid #ddd;
@@ -357,8 +359,13 @@ form textarea {
     padding: 18px 20px;
 }
 
-.label {
+label {
+    display: block;
     margin-top: 30px;
+}
+
+.field:first-child label {
+    margin-top: 10px;
 }
 
 form button {
@@ -464,4 +471,101 @@ div + button, input + input {
 .pagination a:hover {
     font-weight: bold;
     text-decoration: underline;
+}
+
+/* === PHOTOS UPLOAD === */
+
+form .field #photos-upload {
+    position: relative;
+
+    display: inline-block;
+    overflow: hidden;
+}
+
+form .field.chef-avatar #photos-upload {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form .field #photos-upload .button {
+    padding: 8px 16px;
+    margin: 0;
+}
+
+form .field input[type=file], /* FF, IE7+, chrome (except button) */
+form .field input[type=file]::-webkit-file-upload-button, /* chromes and blink button */
+form .field #photos-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    opacity: 0;
+
+    cursor: pointer;
+}
+
+form .field #photos-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+
+    width: 100%;
+    margin: 8px 0;
+}
+
+form .field.chef-avatar #photos-preview {
+    display: initial;
+}
+
+form .field #photos-preview img {
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+}
+
+.chef-avatar #photos-preview {
+    text-align: center;
+}
+
+form .field.chef-avatar #photos-preview img {
+    width: 128px;
+    height: 128px;
+
+    border-radius: 50%;
+}
+
+#photos-preview .photo {
+    position: relative;
+}
+
+#photos-preview .photo i {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--danger-color);
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 500%;
+    cursor: pointer;
+
+    transition: opacity 200ms;
+
+    opacity: 0;
+}
+
+#photos-preview .photo i:hover {
+    opacity: 1;
 }

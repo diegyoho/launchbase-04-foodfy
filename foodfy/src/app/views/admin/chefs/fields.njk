@@ -1,5 +1,41 @@
-<p class="label">Nome</p>
-<input type="text" name="name" value="{{ chef.name }}">
+<div class="field">
+    <label for="name">Nome</label>
+    <input type="text" name="name" value="{{ chef.name }}">
+</div>
 
-<p class="label">Avatar</p>
-<input type="url" name="avatar_url" placeholder="https://" value="{{ chef.avatar_url }}">
+<div class="field chef-avatar">
+    <label for="avatar">Avatar</label>
+    <div id="photos-upload">
+        <div id="photos-preview">
+            {% if file %}
+                <div class="photo" id="{{ file.id }}">
+                    <img src="{{ file.src }}" alt="{{ file.name }}">
+                </div>
+            {% endif %}
+        </div>
+        <input
+            id="photos-input"
+            type="file"
+            name="avatar"
+            accept="image/*"
+            onchange="PhotosUpload.handleFileInput(event, 1, true)"
+        >
+        <p class="button">Enviar Avatar</p>
+    </div>
+
+    {# <div id="photos-preview">
+        {% if files %}
+            {% for file in files %}
+                <div class="photo" id="{{ file.id }}">
+                    <img src="{{ file.src }}" alt="{{ file.name }}">
+                    <i
+                        class="material-icons"
+                        onclick="PhotosUpload.removeOldPhoto(event)"
+                    >
+                        delete
+                    </i>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div> #}
+</div>

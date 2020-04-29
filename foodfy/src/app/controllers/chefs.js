@@ -138,7 +138,13 @@ module.exports = {
         try {
             const { id } = req.body
 
+            const chef = (await Chef.find(req.body.id)).rows[0]
+
+            if (!chef) return res.send('Chef not found!')
+
             await Chef.delete(id)
+
+            await File.delete(chef.file_id)
 
             return res.redirect('/admin/chefs')
         } catch(err) {

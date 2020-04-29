@@ -184,6 +184,14 @@ module.exports = {
         try {
             const { id } = req.body
 
+            let files = (await Recipe.files(id)).rows
+
+            let removedFilesPromise = files.map(file => RecipeFiles.delete(file.id))
+            await Promise.all(removedFilesPromise)
+            
+            removedFilesPromise = files.map(file => File.delete(file.id))
+            await Promise.all(removedFilesPromise)
+
             await Recipe.delete(id)
 
             return res.redirect('/admin/recipes')

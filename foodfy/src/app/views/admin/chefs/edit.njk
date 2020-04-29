@@ -2,45 +2,32 @@
 
 {% block content %}
     <main>
-        <form action="/admin/chefs?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="title">
-                <h2>Editando chef</h2>
-                <div class="buttons">
-                    <button type="submit" class="button delete">Deletar</button>
-                    <button type="submit" class="button">Salvar chef</button>
-                </div>
+        <div class="title">
+            <h2>Editando chef</h2>
+            <div class="buttons">
+                <button type="submit" class="button delete" form="delete">Deletar</button>
+                <button type="submit" class="button" form="update">Salvar chef</button>
             </div>
+        </div>
+        <form id="update" action="/admin/chefs?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="content">
                 {% include './fields.njk' %}
             </div>
             <input type="hidden" name="id" value="{{ chef.id }}">
         </form>
+        <form id="delete" action="/admin/chefs?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="{{ chef.id }}">
+        </form>
     </main>
     <script>
-        let method = 'PUT'
-        document
-            .querySelector('.delete')
-            .addEventListener('click', event => method = 'DELETE')
-        document
-            .querySelector('form')
-            .addEventListener('submit', event => {
-                document
-                    .querySelector('form')
-                    .action = `/admin/chefs?_method=${method}`
+        document.querySelector('form#delete')
+                .addEventListener('submit', event => {
+                    const confirmation = confirm('Desejar realmente deletar?')
 
-                if (method === 'DELETE') {
-                    let confirmation = false
-                    
-                    if(parseInt({{ chef.recipes }}) === 0)
-                        confirmation = confirm('Desejar realmente deletar?')
-                    else
-                        alert('Chefs que possuem receitas não podem ser deletados!')
-                    
                     if (!confirmation) {
                         event.preventDefault()
                         method = 'PUT'
                     }
-                }
-            })
+                })
     </script>
 {% endblock %}

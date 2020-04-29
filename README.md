@@ -55,6 +55,14 @@
     <img alt="Exemplo" src="docs/imgs/preview-4.gif" width="100%" />
 </div>
 
+
+- [x] Envio de imagens Foodfy - 
+<a href="https://github.com/Rocketseat/bootcamp-launchbase-desafios-07/blob/master/desafios/07-foodfy-envio-imagens.md">Descrição</a>
+
+<div align="center">
+    <img alt="Exemplo" src="docs/imgs/preview-6.gif" width="100%" />
+</div>
+
 #### Instalação:
 
 Certifique-se de estar na raiz do projeto(pasta ./foodfy) e execute no terminal:

@@ -5,7 +5,8 @@ module.exports = {
         return db.query(`
             SELECT recipes.*, chefs.name AS chef_name
             FROM recipes
-            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)`)
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            ORDER BY recipes.created_at DESC`)
     },
     create(data) {
         const query = `
@@ -40,7 +41,8 @@ module.exports = {
             SELECT recipes.*, chefs.name AS chef_name
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-            WHERE recipes.title ILIKE '%${filter}%'`)
+            WHERE recipes.title ILIKE '%${filter}%'
+            ORDER BY recipes.updated_at DESC`)
     },
     update(data) {
         const query = `
@@ -75,6 +77,7 @@ module.exports = {
         ) AS total`
 
         let endQuery = `
+            ORDER BY recipes.created_at DESC
             LIMIT ${limit} OFFSET ${offset}
         `
 

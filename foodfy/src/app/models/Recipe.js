@@ -111,7 +111,8 @@ module.exports = {
             SELECT recipes.*, chefs.name AS chef_name
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-            WHERE recipes.chef_id = $1`, [chefId])
+            WHERE recipes.chef_id = $1
+            ORDER BY recipes.created_at DESC`, [chefId])
     },
     files(id) {
         return db.query(`
